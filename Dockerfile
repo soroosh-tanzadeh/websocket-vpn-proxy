@@ -11,7 +11,7 @@ RUN set -ex\
 COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh
 COPY v2 /v2
-COPY www/home.hml /www/home.html
+COPY www/home.html /www/home.html
 
 RUN chmod +x /v2
 RUN chmod +x /entrypoint.sh

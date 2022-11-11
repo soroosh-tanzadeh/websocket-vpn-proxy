@@ -45,7 +45,7 @@ PORT : Server port. Ex: 80
 
 ```
 ```console
- docker run -d --restart=always -p {PORT}:{PORT} --env Domain={Domain} --env Password={Password} --env PORT={PORT} soroosh-tanzadeh/websocket-vpn-proxy:v1.0.0
+ docker run -d --restart=always -p {PORT}:{PORT} --env Domain={Domain} --env Password={Password} --env PORT={PORT} ghcr.io/soroosh-tanzadeh/websocket-vpn-proxy:v1.0.0
  ```
   
 ### 1.5 Connect Server to ArvanCloud CDN
