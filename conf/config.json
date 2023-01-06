@@ -28,7 +28,7 @@
             },
             "streamSettings": {
                 "network": "ws",
-                "security": "none"
+                "security": "auto"
             }
         }
     ],
