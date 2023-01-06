@@ -1,18 +1,12 @@
-FROM debian:sid
+FROM teddysun/v2ray
 
-RUN set -ex\
-    && apt update -y \
-    && apt upgrade -y \
-    && apt install -y wget unzip qrencode\
-    && apt install -y shadowsocks-libev\
-    && apt install -y nginx\
-    && apt autoremove -y
+RUN apk update \
+    && apk add nginx
 
-COPY conf/ /conf
+COPY conf/config.json /etc/v2ray
+COPY conf/site.conf /etc/nginx/http.d/default.conf
 COPY entrypoint.sh /entrypoint.sh
-COPY v2 /v2
-COPY www/home.html /www/home.html
+COPY www/ /www/
 
-RUN chmod +x /v2
 RUN chmod +x /entrypoint.sh
-CMD /entrypoint.sh
+CMD ["sh","/entrypoint.sh"]

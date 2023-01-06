@@ -1,0 +1,45 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 9000,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "{UUID}"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
